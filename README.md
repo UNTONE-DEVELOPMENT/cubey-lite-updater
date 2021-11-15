@@ -1,2 +1,2 @@
-# cubey-lite-updater
-.NET MAUI Updater for Cubey's Adventures (Lite)
+# cubey-lite-updater [WIP]
+Python Updater for Cubey's Adventures (Lite)
