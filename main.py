@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-import time, threading, requests, pathlib
+import time, threading, requests, pathlib, os
 
 from requests.models import Response
 
@@ -21,10 +21,10 @@ def update_self(lbl, prg):
         time.sleep(1)
         lbl['text'] = "Downloading package..."
         link = "https://matthew5pl.net/cubey/cdn/cubey_linux_amd64_product.zip"
-        file_name = str(pathlib.Path(__file__).parent.resolve()) + "\\cubey.zip"
+        file_name = str(os.path.join(pathlib.Path(__file__).parent.resolve(), "cubey.zip"))
         with open(file_name, "wb") as f:
             lbl['font'] = ("Arial", 10)
-            lbl['text'] = "Saving to " + str(pathlib.Path(__file__).parent.resolve()) + "\\cubey.zip..."
+            lbl['text'] = "Saving to " + file_name + "..."
             resp = requests.get(link, stream=True)
             total_length = resp.headers.get('content-length')
             if total_length is None:
